@@ -8,6 +8,7 @@ from core.models import User
 from core.serializers import UserSerializer
 
 
+
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer

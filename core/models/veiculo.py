@@ -1,9 +1,8 @@
 # core/models/veiculo.py
 from django.db import models
 from .modelo import Modelo
-from .acessorio import Acessorio
 from .cor import Cor
-
+from .acessorio import Acessorio
 
 class Veiculo(models.Model):
     ano = models.IntegerField(null=True, default=0)
@@ -13,4 +12,4 @@ class Veiculo(models.Model):
     acessorios = models.ManyToManyField(Acessorio)
 
     def __str__(self):
-        return f"{self.id} - {self.modelo.nome} - {self.cor.nome} - {self.ano
+        return f"{self.id} - {self.modelo.nome} - {self.cor.nome} - {self.ano}"

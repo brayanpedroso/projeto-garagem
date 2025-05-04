@@ -7,15 +7,18 @@ from drf_spectacular.views import (
 )
 from rest_framework.routers import DefaultRouter
 
+# Importando a view que você já criou
 from core.views import UserViewSet
 
+# Configuração do roteador para a API de usuários
 router = DefaultRouter()
-
 router.register(r'usuarios', UserViewSet, basename='usuarios')
 
 urlpatterns = [
+    # Rota do Admin do Django
     path('admin/', admin.site.urls),
-    # OpenAPI 3
+    
+    # OpenAPI 3 para a documentação da API
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path(
         'api/swagger/',
@@ -27,6 +30,7 @@ urlpatterns = [
         SpectacularRedocView.as_view(url_name='schema'),
         name='redoc',
     ),
-    # API
-    path('api/', include(router.urls)),
+    
+    # API do Core (Usuarios)
+    path('api/', include(router.urls)),  # Inclui as rotas do core.urls
 ]
