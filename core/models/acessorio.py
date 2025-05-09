@@ -1,4 +1,3 @@
-# core/models/acessorio.py
 from django.db import models
 
 class Acessorio(models.Model):
